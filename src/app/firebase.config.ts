@@ -26,6 +26,6 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const storage = getStorage(app);
 
-if (typeof window !== 'undefined') {
-  getAnalytics(app);
-}
+//if (typeof window !== 'undefined') {
+ // getAnalytics(app);
+//}

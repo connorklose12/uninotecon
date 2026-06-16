@@ -11,12 +11,11 @@ import { firebaseConfig } from './firebase.config';
 @Component({
   standalone: true,
   selector: 'app-home',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, ],
   styleUrls: ['./app.css'],
   template: `
     <div class="container mt-5">
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="sha384-9ndCyUa6mY5H0FB2jUl+QbXrmkvpuXvU3K5ODYkG3Rl1YATYapiaP0CUA/o0MGQ5" crossorigin="anonymous">
-  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
       <h1 class="mb-4">UniNote</h1>
 
       <div class="row mb-4">
