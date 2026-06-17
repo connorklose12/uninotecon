@@ -24,7 +24,7 @@ import { firebaseConfig } from './firebase.config';
             <input
               type="text"
               class="form-control"
-              placeholder="New class name"
+              placeholder="Add new class name"
               [(ngModel)]="newClassName"
             />
             <button class="btn btn-success" type="button" (click)="addNewClass()">
