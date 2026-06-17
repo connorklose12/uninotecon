@@ -39,7 +39,7 @@ interface Post {
         />
         <button class="btn btn-primary" (click)="submitPost()">Post</button>
       </div>
-<"className === "All Posts"" ? <div class="posts-container">
+      <div class="posts-container">
   <button *ngFor="let post of posts" class="post-box" (click)="openPost(post)">
     <p>{{ post.content }}</p>
     <small style="color: #96ac7f;">{{post.email}}   {{ formatDate(post.timestamp) }}</small>
