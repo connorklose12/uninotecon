@@ -11,14 +11,18 @@ import { Router } from '@angular/router';
   selector: 'app-root',
   imports: [RouterOutlet, CommonModule, AsyncPipe], 
   template: `
+    <link rel="stylesheet" href="https://cloudflare.com">
     <ng-container *ngIf="authService.currentUser$ | async as user; else loggedOut"> 
-      <p>Welcome, {{ user.email }}</p>
+      <button (click)="router.navigate([''])">HOME</button>
+       <button (click)="router.navigate(['/login'])">Go to Login</button>
       <button (click)="authService.logout()">Logout</button>
+    <p>Welcome, {{ user.email }}</p>
     </ng-container>
 
-    <ng-template #loggedOut><p>Not logged in</p></ng-template>
-   <ng-template #loggedOut><button (click)="router.navigate(['/login'])">Go to Login</button></ng-template> 
+    
    
+    <ng-template #loggedOut><p>Not logged in</p></ng-template>
+
    <router-outlet></router-outlet>
   
   `,

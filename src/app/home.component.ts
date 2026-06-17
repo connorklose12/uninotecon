@@ -16,7 +16,7 @@ import { firebaseConfig } from './firebase.config';
   template: `
     <div class="container mt-5">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-      <h1 class="mb-4">UniNote</h1>
+      <h1 class="mb-4">UniNote Swap</h1>
 
       <div class="row mb-4">
         <div class="col-md-8">
