@@ -17,6 +17,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "outputPath": "dist/uninotecon",
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
@@ -31,6 +32,7 @@
                 "ssr": false },
 
           "configurations": {
+            "baseHref": "/uninotecon/",
             "production": {
               "budgets": [
                 {
@@ -69,9 +71,12 @@
         "test": {
           "builder": "@angular/build:unit-test"
         },
-        "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
-        }
+       "deploy": {
+  "builder": "angular-cli-ghpages:deploy",
+  "options": {
+    "dir": "dist/uninotecon/browser"
+  }
+       }
       }
     }
   }
