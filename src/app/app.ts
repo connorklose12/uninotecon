@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
   imports: [RouterOutlet, CommonModule, AsyncPipe], 
   template: `
     <link rel="stylesheet" href="https://cloudflare.com">
+    <h1 class="mb-1">UniNote Swap</h1>
       <button (click)="router.navigate([''])">HOME</button>
     <ng-container *ngIf="authService.currentUser$ | async as user; else loggedOut"> 
       <button (click)="authService.logout()">Logout</button>

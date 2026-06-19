@@ -52,14 +52,15 @@ interface Post {
     <div *ngFor="let post of posts">
       <div class="post-box" (click)="openPost(post)">
         <p>{{ post.content }}</p>
-   <img *ngIf="post.imageUrl" [src]="post.imageUrl" style="max-width:100%; border-radius:6px;" />
+   <img *ngIf="post.imageUrl" [src]="post.imageUrl" style="max-width:100%; border-radius:6px;" /><br>
         <small style="color: #96ac7f;">{{post.email}} {{ formatDate(post.timestamp) }}</small>
         
         <button (click)="likePost(post); $event.stopPropagation()" class="heart-btn" [class.liked]="post.liked">
           {{ post.liked ? '❤️' : '🤍' }}
         </button>
         <small> {{post.likes}} </small>
-        <button *ngIf="post.email === auth.currentUser?.email" (click)="deletePost(post); $event.stopPropagation()">DELETE</button>
+        <button *ngIf="post.email === auth.currentUser?.email" (click)="deletePost(post); 
+        $event.stopPropagation()" style="margin-left: 30px;">DELETE</button>
         <button style="margin-left: 30px;" (click)="toggleReply(post); $event.stopPropagation()">REPLY</button>
       </div>
 
@@ -241,7 +242,8 @@ authService = inject(AuthService);
 
     this.postContent = '';
   } catch (error) {
-    console.error('Submit failed:', error); // 👈 check browser console for this
+    console.error('Submit failed:', error); // check browser console for this
+  alert('Submit failed. Likely cause: not enough storage on website.')
   }
 }
   
@@ -274,7 +276,8 @@ async submitReply(post: any) {
   private zone = inject(NgZone);
 
 async openPost(post: Post) {
-  await this.router.navigate(['post', post.id], { state: { postContent: post.content, classId: this.classId, className: this.className } });
+  await this.router.navigate(['post', post.id], { state: { postContent: post.content, classId: this.classId, className: this.className, imageURL: post.imageUrl} });
+
 }
 async likePost(post: any) {
   const email = this.auth.currentUser?.email;

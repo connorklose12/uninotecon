@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, onSnapshot, addDoc, Unsubscribe, getDocs, query, where } from 'firebase/firestore';
 import { firebaseConfig } from './firebase.config';
+import { emailjs } from '@emailjs/browser';
 
 
 @Component({
@@ -16,7 +17,6 @@ import { firebaseConfig } from './firebase.config';
   template: `
     <div class="container mt-5">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-      <h1 class="mb-4">UniNote Swap</h1>
 
       <div class="row mb-4">
         <div class="col-md-8">
@@ -71,10 +71,12 @@ import { firebaseConfig } from './firebase.config';
               </li>
             </ul>
           </div>
+          <div class="mt-5"><p>\n Hi, welcome! This is a site for sharing notes, advice, questions, and \n discussions with other people at NDSU who are in the same class as you to help \n each other get through the course. Any questions, comments, concerns, ideas, or \n posts you'd like to report can be mentioned in this box here. I'll try to Email back. Thanks!</p>
+<input type="text" placeholder="Share here" [(ngModel)]="emailMessage"/>
+<button>SUBMIT</button></div>
         </div>
       </div>
-    </div>
-  `,
+    </div>`,
   styles: [`
     .dropdown-menu.show {
       display: block;
@@ -86,6 +88,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   searchTerm = '';
   newClassName = '';
   selectedClass: any = null;
+  emailMessage = '';
   isDropdownOpen = false;
   private unsubscribe?: Unsubscribe;
   private db: any;
