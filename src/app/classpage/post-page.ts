@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
     imports: [CommonModule, FormsModule],
     template: `
     <div style="padding: 20px;">
-    <h1>{{ postContent }}</h1>
+    <p style="font-family: 'Poppins', sans-serif; font-size:32px">{{ postContent }}</p>
     <img *ngIf="imageURL" [src]="imageURL" style="width: 1000px; border-radius:6px;" /><br>
      
     </div>

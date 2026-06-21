@@ -1,8 +1,312 @@
-@import "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css";
 
-body {
-  background-color: #f8f9fa;
-  color: #212529;
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,800&display=swap");
+
+:root {
+  --bg: #fdfdaa;
+  --surface: #e9f060;
+  --line: #dcecc9;
+  --ink: #1a2b12;
+  --ink-muted: #5c6e4f;
+  --ink-faint: #8a9a7a;
+  --lime: #7ed321;
+  --lime-text: #3f7d20;
+  --radius-pill: 980px;
+  --radius: 14px;
 }
 
-/* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, "SF Pro Display", "Segoe UI", Inter, Roboto, Arial, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 2.5rem;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--ink);
+  margin: 0 0 14px;
+}
+h2 {
+   font-family: -apple-system, "SF Pro Display", "Segoe UI", Inter, Roboto, Arial, sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 2.5rem;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--ink);
+  margin: 0 0 14px;
+}
+
+p {
+  color: var(--ink-muted);
+  margin: 0 0 12px;
+}
+
+a {
+  color: var(--lime-text);
+  font-weight: 600;
+}
+
+.page-container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 56px 32px 64px;
+}
+
+/* Header */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 56px;
+  background: none;
+  border: none;
+}
+
+.app-header h1 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.welcome-line {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--ink-muted);
+  max-width: 380px;
+  margin: 0 auto 56px;
+}
+
+.eyebrow {
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--lime-text);
+  margin-bottom: 10px;
+}
+
+.section-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-muted);
+}
+
+/*Posts: no card box, hairline dividers */
+.posts-list {
+  border-top: 1px solid var(--line);
+  padding-top: 40px;
+}
+
+.post-card,
+.card {
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  padding: 20px 0;
+  margin-bottom: 0;
+  box-shadow: none;
+}
+
+.post-card .post-meta,
+.flair-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--lime-text);
+}
+
+.post-card .post-meta .timestamp,
+.timestamp {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--ink-faint);
+  float: right;
+}
+
+.post-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 6px 0 4px;
+}
+
+.reply-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 16px;
+  margin: 8px 0 8px 20px;
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+}
+
+/* Inputs  */
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 13px 18px;
+  width: 100%;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--ink-faint);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--lime);
+}
+
+/* search / add-class bars use pill inputs */
+.input-group input {
+  border-radius: var(--radius-pill);
+}
+
+/*  Buttons */
+button {
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.875rem;
+  background: var(--lime);
+  color: var(--ink);
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 13px 22px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+button:hover {
+  background: #6cc012;
+}
+
+.btn-secondary,
+.btn-ghost {
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+.btn-secondary:hover,
+.btn-ghost:hover {
+  border-color: var(--lime);
+}
+
+/* Dropdown  */
+.dropdown-toggle {
+  background: none;
+  border: none;
+  color: var(--lime-text);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0;
+  cursor: pointer;
+}
+
+/*Empty state  */
+.empty-state {
+  text-align: center;
+  color: var(--ink-faint);
+  padding: 40px 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+/* Display name "Set" control 
+ In app.component.ts, the input bound to [(ngModel)]="displayy" and its
+   SET button hav no wrapping div/row,  */
+input[placeholder="Set display name"] {
+  display: inline-block;
+  width: auto;
+  max-width: 180px;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  border-radius: var(--radius-pill);
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+input[placeholder="Set display name"] + button {
+  display: inline-block;
+  width: auto;
+  padding: 8px 18px;
+  font-size: 0.85rem;
+  border-radius: var(--radius-pill);
+  vertical-align: middle;
+}
+
+/* Class dropdown list   */
+.dropdown-menu li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+}
+
+.dropdown-menu .dropdown-item {
+  background-color: var(--surface) !important;
+  color: var(--ink) !important;
+  border-left: none !important;
+  font-weight: 600 !important;
+  border-radius: 10px !important;
+  padding: 10px 14px !important;
+  flex: 1;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: var(--bg) !important;
+}
+
+.background{
+  color: #b5fb95;
+}
+/* "No posts here yet" and the ⭐ star*/
+.button-container button:not(.dropdown-item) {
+  background: none !important;
+  border: none !important;
+  color: var(--ink-faint) !important;
+  font-weight: 400 !important;
+  font-size: 0.85rem !important;
+  padding: 0 6px !important;
+  margin: 0 !important;
+  white-space: nowrap;
+  box-shadow: none !important;
+  cursor: default;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .page-container {
+    padding: 40px 20px;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+}
