@@ -271,8 +271,8 @@ input[placeholder="Set display name"] + button {
 }
 
 .dropdown-menu .dropdown-item {
-  background-color: var(--surface) !important;
-  color: var(--ink) !important;
+ /* background-color: var(--surface) !important; */
+ /* color: var(--ink) !important;*/
   border-left: none !important;
   font-weight: 600 !important;
   border-radius: 10px !important;
@@ -291,7 +291,7 @@ input[placeholder="Set display name"] + button {
 .button-container button:not(.dropdown-item) {
   background: none !important;
   border: none !important;
-  color: var(--ink-faint) !important;
+  /*color: var(--ink-faint) !important; */
   font-weight: 400 !important;
   font-size: 0.85rem !important;
   padding: 0 6px !important;

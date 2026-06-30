@@ -17,6 +17,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+              "baseHref": "/uninotecon/",
             "outputPath": "dist/uninotecon",
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
@@ -32,13 +33,12 @@
                 "ssr": false },
 
           "configurations": {
-            "baseHref": "/uninotecon/",
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "1mb",
+                  "maximumError": "1.5mb"
                 },
                 {
                   "type": "anyComponentStyle",

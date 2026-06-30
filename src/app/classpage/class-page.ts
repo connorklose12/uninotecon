@@ -358,3 +358,5 @@ async likePost(post: any) {
   );
   }
 }
+
+//ASGI_APPLICATION = 'mygame.asgi.application'
