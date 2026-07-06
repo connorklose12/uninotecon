@@ -1,3 +1,5 @@
+This is a project I created where you can choose your class at NDSU, and post notes, discussions, questions, etc. to help people taking the same class.
+
 # Uninotecon
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.6.
