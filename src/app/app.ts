@@ -33,7 +33,7 @@ import { onAuthStateChanged } from 'firebase/auth';
   <div *ngFor="let n of notifications">
     <ul *ngIf="n.toEmail===user.email">
            <button (click)="router.navigate(['class', n.className]); notifOpen=false"
-            style="display: block; width: 50%; text-align: left; padding: 10px; border: none; border-bottom: 1px solid #eee; cursor: pointer; background: #f8f9fa;">
+            style="display: block; width: 50%; text-align: left; padding: 10px; border: none; border-bottom: 1px solid #fdff84; cursor: pointer; background: #1b360d;">
       reply: "On post from {{n.className}}: {{ n.replyContent }} {{n.timestamp}}"
     </button>
 </ul>

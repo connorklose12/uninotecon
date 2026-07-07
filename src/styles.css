@@ -1,15 +1,15 @@
-
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,700;0,800;1,700&family=Quicksand:wght@400;500;600;700&display=swap");
 
 :root {
-  --bg: #fdfdaa;
-  --surface: #e9f060;
-  --line: #dcecc9;
-  --ink: #1a2b12;
-  --ink-muted: #5c6e4f;
-  --ink-faint: #8a9a7a;
-  --lime: #7ed321;
-  --lime-text: #3f7d20;
+  --bg: #fffff5;
+  --surface: #fdffe3;
+  --line: #e0ffc9;
+  --ink: #194014;
+  --ink-muted: #4d9b4d;
+  --ink-faint: #8fc48f;
+  --lime: #a0d26f;       
+  --lime-text: #d6d333;
+  --gradient-hero: linear-gradient(135deg, #ffffe3 0%, #f9ff9f 55%, #ffffb8 100%);
   --radius-pill: 980px;
   --radius: 14px;
 }
@@ -22,13 +22,13 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: -apple-system, "SF Pro Display", "Segoe UI", Inter, Roboto, Arial, sans-serif;
+  font-family: "Quicksand", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
 
 h1 {
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 800;
   font-style: italic;
   font-size: 2.5rem;
@@ -38,7 +38,7 @@ h1 {
   margin: 0 0 14px;
 }
 h2 {
-   font-family: -apple-system, "SF Pro Display", "Segoe UI", Inter, Roboto, Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 800;
   font-style: italic;
   font-size: 2.5rem;
@@ -61,23 +61,27 @@ a {
 .page-container {
   max-width: 640px;
   margin: 0 auto;
-  padding: 56px 32px 64px;
+  padding: 0 0 64px;
 }
 
-/* Header */
+/*Header*/ 
 .app-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 56px;
-  background: none;
+  margin-bottom: 40px;
+  background: var(--gradient-hero);
   border: none;
+  border-radius: 0 0 28px 28px;
+  padding: 24px 32px 32px;
 }
 
 .app-header h1 {
   font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.02em;
+  color: var(--ink);
   margin: 0;
 }
 
@@ -87,6 +91,7 @@ a {
   color: var(--ink-muted);
   max-width: 380px;
   margin: 0 auto 56px;
+  padding: 0 32px;
 }
 
 .eyebrow {
@@ -105,21 +110,21 @@ a {
   color: var(--ink-muted);
 }
 
-/*Posts: no card box, hairline dividers */
+/* Posts*/
 .posts-list {
-  border-top: 1px solid var(--line);
-  padding-top: 40px;
+  border-top: none;
+  padding: 0 32px;
 }
 
 .post-card,
 .card {
-  background: none;
-  border: none;
+  background: #ffffff;
+  border: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  border-radius: 0;
-  padding: 20px 0;
-  margin-bottom: 0;
-  box-shadow: none;
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 16px rgba(255, 85, 176, 0.10);
 }
 
 .post-card .post-meta,
@@ -128,7 +133,11 @@ a {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--lime-text);
+  color: #ffffff;
+  background: var(--lime);
+  border-radius: var(--radius-pill);
+  padding: 3px 10px;
+  display: inline-block;
 }
 
 .post-card .post-meta .timestamp,
@@ -138,6 +147,8 @@ a {
   letter-spacing: 0;
   color: var(--ink-faint);
   float: right;
+  background: none;
+  padding: 0;
 }
 
 .post-title {
@@ -158,14 +169,14 @@ a {
   color: var(--ink-muted);
 }
 
-/* Inputs  */
+/* Inputs */
 input,
 textarea,
 select {
   font-family: inherit;
   font-size: 0.95rem;
   color: var(--ink);
-  background: var(--surface);
+  background: #ffffff;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 13px 18px;
@@ -181,44 +192,52 @@ input:focus,
 textarea:focus {
   outline: none;
   border-color: var(--lime);
+  box-shadow: 0 0 0 3px rgba(255, 85, 176, 0.15);
 }
 
-/* search / add-class bars use pill inputs */
+/* search */ 
 .input-group input {
   border-radius: var(--radius-pill);
 }
 
-/*  Buttons */
+/* Buttons*/
 button {
-  font-family: inherit;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 0.875rem;
   background: var(--lime);
-  color: var(--ink);
+  color: #ffffff;
   border: none;
   border-radius: var(--radius-pill);
   padding: 13px 22px;
   cursor: pointer;
   white-space: nowrap;
+  box-shadow: 0 8px 20px rgba(255, 85, 176, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 button:hover {
-  background: #6cc012;
+  background: #3fe845;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(255, 85, 176, 0.32);
 }
 
 .btn-secondary,
 .btn-ghost {
-  background: var(--surface);
+  background: #ffffff;
   color: var(--ink);
   border: 1px solid var(--line);
+  box-shadow: none;
 }
 
 .btn-secondary:hover,
 .btn-ghost:hover {
   border-color: var(--lime);
+  background: #ffffff;
+  box-shadow: none;
 }
 
-/* Dropdown  */
+/* Dropdown */
 .dropdown-toggle {
   background: none;
   border: none;
@@ -227,9 +246,10 @@ button:hover {
   font-size: 0.9rem;
   padding: 0;
   cursor: pointer;
+  box-shadow: none;
 }
 
-/*Empty state  */
+/* Empty state */
 .empty-state {
   text-align: center;
   color: var(--ink-faint);
@@ -239,9 +259,7 @@ button:hover {
   background: var(--surface);
 }
 
-/* Display name "Set" control 
- In app.component.ts, the input bound to [(ngModel)]="displayy" and its
-   SET button hav no wrapping div/row,  */
+/* Display name "Set" control */
 input[placeholder="Set display name"] {
   display: inline-block;
   width: auto;
@@ -262,7 +280,7 @@ input[placeholder="Set display name"] + button {
   vertical-align: middle;
 }
 
-/* Class dropdown list   */
+/* Class dropdown list */
 .dropdown-menu li {
   display: flex;
   align-items: center;
@@ -271,8 +289,6 @@ input[placeholder="Set display name"] + button {
 }
 
 .dropdown-menu .dropdown-item {
- /* background-color: var(--surface) !important; */
- /* color: var(--ink) !important;*/
   border-left: none !important;
   font-weight: 600 !important;
   border-radius: 10px !important;
@@ -284,14 +300,14 @@ input[placeholder="Set display name"] + button {
   background-color: var(--bg) !important;
 }
 
-.background{
-  color: #b5fb95;
+.background {
+  color: #feffd6;
 }
-/* "No posts here yet" and the ⭐ star*/
+
+/* "No posts here yet" and the star*/
 .button-container button:not(.dropdown-item) {
   background: none !important;
   border: none !important;
-  /*color: var(--ink-faint) !important; */
   font-weight: 400 !important;
   font-size: 0.85rem !important;
   padding: 0 6px !important;
@@ -304,7 +320,11 @@ input[placeholder="Set display name"] + button {
 /* Responsive */
 @media (max-width: 600px) {
   .page-container {
-    padding: 40px 20px;
+    padding: 0 0 40px;
+  }
+  .app-header {
+    padding: 20px 20px 24px;
+    border-radius: 0 0 20px 20px;
   }
   h1 {
     font-size: 1.8rem;

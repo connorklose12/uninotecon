@@ -17,6 +17,7 @@ import emailjs from '@emailjs/browser';
 interface Post {
   id?: string;
   content: string;
+  professor?: string;
   timestamp: number;
   email?: string;
   displayName?: string;
@@ -46,11 +47,12 @@ interface Post {
   rows="1"
   style="resize: none; overflow: hidden;"
   (input)="autoResize($event)" ></textarea>
+  <input [(ngModel)]="myProfessor" placeholder="My professor"/>
 <input type="file" accept="image/*" (change)="onFileSelected($event)" />
     <small *ngIf="selectedImage" style="padding: 5px; color: green;">
   ✓ {{ selectedImage.name }}
 </small>
- <button class=" btn btn-pink" style="background-color: #ff55b0" (click)="submitPost()">Post</button><br>
+ <button class=" btn btn-pink" style="background-color: #ebeb86" (click)="submitPost()">Post</button><br>
 </div>
 <div class="input-group mb-5"><p class="me-3">Flair: {{flairr}} </p>
 <div class="btn-sm btn-success" ><button (click)="flairr='Notes'">Notes</button>
@@ -66,14 +68,17 @@ interface Post {
     <div *ngFor="let post of posts">
       <div class="post-box" (click)="openPost(post)">
         <p>{{ post.content }}</p>
+
    <img *ngIf="post.imageUrl" [src]="post.imageUrl" style="max-width:100%; border-radius:6px;" /><br>
    <small style="color: maroon;">@{{post.displayName || 'Anonymous'}}</small>
+   <small style="color: #5a6a48;"> Professor: {{post.professor || ' '}}</small>
    <small style="color: #96ac7f;"> {{ formatDate(post.timestamp) }}</small>
         <button class="btn btn-danger btn-sm ms-5 me-3">{{post.flair}}</button>
         <button (click)="likePost(post); $event.stopPropagation()" class="heart-btn" [class.liked]="post.liked">
           {{ post.liked ? '❤️' : '🤍' }}
         </button>
-        <small> {{post.likes}} </small>
+        <small> {{ post.likes }}</small>
+        <small> found this helpful</small>
         <button *ngIf="post.email === auth.currentUser?.email" (click)="deletePost(post); 
         $event.stopPropagation()" style="margin-left: 30px;">DELETE</button>
         <button style="margin-left: 30px;" (click)="toggleReply(post); toUser=''; replyEmail='connorklose12@gmail.com'; $event.stopPropagation()">REPLY</button>
@@ -148,6 +153,7 @@ interface Post {
 export class ClassPage implements OnInit, OnDestroy {
   className = '';
   postContent = '';
+  myProfessor = '';
   replyContent = '';
   searchTerm = '';
   toUser = '';
@@ -269,6 +275,7 @@ async ngOnInit() {
     }
     await addDoc(collection(this.db, 'classes', this.classId, 'posts'), {
       content: this.postContent,
+      professor: this.myProfessor,
       flair: this.flairr,
       timestamp: Date.now(),
       email: user?.email || 'Anonymous',
@@ -321,7 +328,7 @@ async submitReply(post: any, to: string) {
   private zone = inject(NgZone);
 
 async openPost(post: Post) {
-  await this.router.navigate(['post', post.id], { state: { postContent: post.content, classId: this.classId, className: this.className, imageURL: post.imageUrl} });
+  await this.router.navigate(['post', post.id], { state: { postContent: post.content, classId: this.classId, className: this.className, imageURL: post.imageUrl, myProfessor: post.professor} });
 
 }
 async likePost(post: any) {

@@ -68,7 +68,7 @@ import { getAuth } from 'firebase/auth';
                 <button *ngIf="classItem.postCount>0">⭐</button></div></div>
                 <div *ngIf="!classItem.colorr"><button
                   type="button" [style.color]="'maroon'"class="dropdown-item text-start"
-                  [style.background-color]="'#eabed4'"
+                  [style.background-color]="'#e790bc'"
                   (click)="selectClass(classItem)"
                   style="font-weight: 500; border-left: 4px solid #155724; padding-left: 8px;"
                 >{{ classItem.name }}
